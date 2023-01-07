@@ -20,7 +20,7 @@ namespace c_sharp_1
         public void Data_Of_Car()
         {
             Console.WriteLine(
-                $"NAME: {Name} --- COLOR: {Color} --- SPEED: {Speed}");
+                $"Name of car: {Name} \n It's color: {Color} \n it's speed: {Speed}");
         }
     }
     public class SheihGarage
@@ -37,12 +37,12 @@ namespace c_sharp_1
             Cars.Remove(car);
         }
 
-        public void ShowAutoPark()
+        public void Your_Cars()
         {
             Console.WriteLine("Your car park:");
-            for (int i = 0; i < Cars.Count; i++)
+            for (int i = 0; i < Cars.Count; ++i)
             {
-                Console.WriteLine($"Car index - {i}");
+                Console.WriteLine($"Car index :- {i}");
                 Cars[i].Data_Of_Car();
             }
         }
@@ -54,7 +54,7 @@ namespace c_sharp_1
         public static void Main()
         {
             var garage = new SheihGarage();
-            garage.ShowAutoPark();
+            garage.Your_Cars();
 
             Console.WriteLine("Do you want to buy or delete one of the cars?");
             Console.WriteLine("Buy - 0");
@@ -87,7 +87,16 @@ namespace c_sharp_1
 
             var newCar = new Cars(Name,Color,Speed);
             garage.AddCar(newCar);
-            garage.ShowAutoPark();
+            Console.WriteLine("do you need to see list of your cars?(yes/no)   ");
+            string answear = Console.ReadLine();
+            if (answear == "yes")
+            {
+                garage.Your_Cars();
+            }
+            else if (answear == "no")
+            {
+                Console.WriteLine();
+            }
         }
 
         private static void Delete(SheihGarage garage)
@@ -95,7 +104,16 @@ namespace c_sharp_1
             Console.WriteLine("Which car to delete?");
             int carIndex = int.Parse(Console.ReadLine());
             garage.RemoveCar(garage.Cars[carIndex]);
-            garage.ShowAutoPark();
+            Console.WriteLine("do you need to see list of your cars?(yes/no)   ");
+            string answear2 = Console.ReadLine();
+            if (answear2 == "yes")
+            {
+                garage.Your_Cars();
+            }
+            else if(answear2 == "no")
+            {
+                Console.WriteLine();
+            }
         }   
 }
     }
