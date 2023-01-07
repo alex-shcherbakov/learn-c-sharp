@@ -32,7 +32,7 @@ namespace c_sharp_1
             Cars.Add(car);
         }
 
-        public void RemoveCar(Cars car)
+        public void DeleteCar(Cars car)
         {
             Cars.Remove(car);
         }
@@ -59,7 +59,7 @@ namespace c_sharp_1
             Console.WriteLine("Do you want to buy or delete one of the cars?");
             Console.WriteLine("Buy - 0");
             Console.WriteLine("Delete - 1");
-            int decision = int.Parse(Console.ReadLine());
+            int decision = Convert.ToInt32(Console.ReadLine());
             if(decision == 0)
             {
                     BuyCar(garage);                
@@ -74,7 +74,7 @@ namespace c_sharp_1
             
         }
 
-        private static void BuyCar(SheihGarage garage)
+        static void BuyCar(SheihGarage garage)
         {
             Console.WriteLine("Enter car brand");
             string Name = Console.ReadLine();
@@ -99,12 +99,12 @@ namespace c_sharp_1
             }
         }
 
-        private static void Delete(SheihGarage garage)
+        static void Delete(SheihGarage garage)
         {
             Console.WriteLine("Which car to delete?");
             int carIndex = int.Parse(Console.ReadLine());
-            garage.RemoveCar(garage.Cars[carIndex]);
-            Console.WriteLine("do you need to see list of your cars?(yes/no)   ");
+            garage.DeleteCar(garage.Cars[carIndex]);
+            Console.WriteLine("do you need to see list of your cars?(yes/no) -  ");
             string answear2 = Console.ReadLine();
             if (answear2 == "yes")
             {
